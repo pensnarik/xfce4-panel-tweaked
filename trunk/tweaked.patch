@@ -1,5 +1,14 @@
---- xfce4-panel-4.14.4/plugins/tasklist/tasklist-widget.c	2020-12-05 11:25:15.156230078 +0100
-+++ xfce4-panel-4.14.4/plugins/tasklist/tasklist-widget.c	2020-12-05 11:26:14.742894405 +0100
+--- src/xfce4-panel-4.14.4/plugins/tasklist/tasklist-widget.c	2020-04-28 12:50:56.000000000 +0200
++++ tasklist-widget-patched.c	2020-12-09 23:50:19.381765994 +0100
+@@ -2258,7 +2258,7 @@
+   provider = gtk_css_provider_new ();
+   /* silly workaround for gtkcss only accepting "." as decimal separator and floats returning
+      with "," as decimal separator in some locales */
+-  css_string = g_strdup_printf ("image { padding: 3px; } image.minimized { opacity: %d.%02d; }",
++  css_string = g_strdup_printf ("image { padding: 10px; } image.minimized { opacity: %d.%02d; }",
+                                 tasklist->minimized_icon_lucency / 100,
+                                 tasklist->minimized_icon_lucency % 100);
+   gtk_css_provider_load_from_data (provider, css_string, -1, NULL);
 @@ -3128,7 +3128,7 @@
    provider = gtk_css_provider_new ();
    /* silly workaround for gtkcss only accepting "." as decimal separator and floats returning
